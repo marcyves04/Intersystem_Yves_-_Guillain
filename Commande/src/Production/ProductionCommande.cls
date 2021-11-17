@@ -12,6 +12,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="ServiceCatalogue" Category="" ClassName="BS.ServiceCatalogue" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
   </Item>
+  <Item Name="BOFile" Category="" ClassName="BO.File" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/tmp/</Setting>
+  </Item>
 </Production>
 }
 
