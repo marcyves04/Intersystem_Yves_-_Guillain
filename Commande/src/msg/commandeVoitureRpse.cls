@@ -1,4 +1,4 @@
-Class msg.getCatalogueRpse Extends (msg.basic.reponse, %JSON.Adaptor)
+Class msg.getCatalogueRpse Extends msg.basic.reponse
 {
 
 Storage Default
