@@ -13,9 +13,11 @@ Method pushVoitureFile(pRequest As pushVoitureFileDmde, Output pResponse As push
 {
    
     set pResponse = ##class(pushVoitureFileRpse).%New()
+
     set stream = ##class(%Library.FileBinaryStream).%New()
+
     do stream.Write(pRequest.voiture.marque_";"_pRequest.voiture.modele_";"_pRequest.voiture.categorie_";"_pRequest.voiture.plaque_";"_pRequest.voiture.couleur_";"_pRequest.voiture.nbPlaces)
-    set tsc = ..Adapter.PutStream("fichierVoiture"_$TR($TR($ZDT($ZDTH($ZTS,-3),3,9),":/-","")," ","_")_".csv",file)
+    set tsc = ..Adapter.PutStream("fichierVoiture"_$TR($TR($ZDT($ZDTH($ZTS,-3),3,9),":/-","")," ","_")_".csv",stream)
     if tsc {
         set pResponse.codeRetour = "OK"
     } else {
