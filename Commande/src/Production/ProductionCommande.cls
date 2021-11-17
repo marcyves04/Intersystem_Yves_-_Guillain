@@ -15,6 +15,8 @@ XData ProductionDefinition
   <Item Name="BOFile" Category="" ClassName="BO.File" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/tmp/</Setting>
   </Item>
+  <Item Name="BOPlaque" Category="" ClassName="BO.Plaque" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+  </Item>
 </Production>
 }
 

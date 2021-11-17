@@ -1,4 +1,4 @@
-Class msg.getCatalogueRpse Extends msg.basic.reponse
+Class msg.commandeVoitureRpse Extends msg.basic.reponse
 {
 
 Storage Default
