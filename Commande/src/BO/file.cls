@@ -1,3 +1,5 @@
+Import msg
+
 Class BO.File Extends Ens.BusinessOperation
 {
 
