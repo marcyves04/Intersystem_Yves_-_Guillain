@@ -54,7 +54,7 @@ ClassMethod GetCatalogue() As %Status
 /// Description
 ClassMethod CommandeVoiture() As %Status
 {
-  #dim sc As %Status = $$OK
+  #dim sc As %Status = $$$OK
   Set msg = ##class(msg.commandeVoitureDmde).%New()
 
   Set donnees = %request.Content
