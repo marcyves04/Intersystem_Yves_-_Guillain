@@ -12,6 +12,7 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <Route Url="/_spec" Method="GET" Call="SwaggerSpec" />
 <!-- Créer une voiture-->
 <Route Url="/catalogue/" Method="get" Call="GetCatalogue"/>
+<Route Url="/voiture/" Method="POST" Call="CommanderVoiture"/>
 </Routes>
 }
 
@@ -48,6 +49,25 @@ ClassMethod GetCatalogue() As %Status
     Do response.%JSONExport()
 
     Quit tSC
+}
+
+/// Description
+ClassMethod CommandeVoiture() As %Status
+{
+  #dim sc As %Status = $$OK
+  Set msg = ##class(msg.commandeVoitureDmde).%New()
+
+  Set donnees = %request.Content
+  do msg.%JSONImport(donnees)
+
+  set sc = ##class(Ens.Director).CreateBusinessService("ServiceVoiture",.tService) if $$$ISERR(sc) quit
+  set sc = tService.ProcessInput(msg,.response,"CommandeVoiture")
+
+  Set %response.Status = 200
+  Set %response.ContentType = ..#CONTENTTYPEJSON
+  Do response.%JSONExport()
+
+  Quit sc
 }
 
 }
