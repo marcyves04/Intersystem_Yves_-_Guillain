@@ -22,6 +22,18 @@ Method creerVoiture(pRequest As msg.creerVoitureDmde, Output pResponse As msg.cr
     Quit $$$OK
 }
 
+Method reservationVoiture(pRequest As msg.creerVoitureReservationDmde, Output pResponse As msg.creerVoitureRpse) As %Status
+{
+    Set pRequest = ##class(msg.creerVoitureRpse).%New()
+    set voiture = ##class(data.Voiture).%New()
+    set voiture.categorie = pRequest.categorie
+    set tsc = voiture.%Save()
+
+    set pResponse.codeRetour = "OK"
+
+    QUIT $$$OK
+}
+
 XData MessageMap
 {
 <MapItems>
