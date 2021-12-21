@@ -19,10 +19,9 @@ Property Type As %String(MAXLEN = 128, XMLNAME = "termType", XMLPROJECTION = "at
 
 /// Class used to retrieve filter field or property values
 Property SourceClass As %String(MAXLEN = 128, XMLNAME = "sourceClass", XMLPROJECTION = "attribute");
-
-/// Set of conditions that must evaluate true for a message to pass the filter.
 Property Conditions As list Of EnsPortal.MsgFilter.Condition(XMLNAME = "condition", XMLPROJECTION = "ELEMENT") [ Cardinality = children, Inverse = Term ];
 
+/// Set of conditions that must evaluate true for a message to pass the filter.
 Method IsValid() As %Boolean
 {
 	Quit:..Disabled 0
