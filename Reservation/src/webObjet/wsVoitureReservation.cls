@@ -3,9 +3,10 @@ Class webObjet.wsVoitureReservation Extends (%SerialObject, %XML.Adaptor, %JSON.
 
 Property categorie As %String;
 
-Property intervalDate As %Date;
+Property dateDebut As %TimeStamp;
 
-/// Description
+Property dateFin As %TimeStamp;
+
 Storage Default
 {
 <Data name="wsVoitureReservationState">
@@ -13,14 +14,12 @@ Storage Default
 <Value>categorie</Value>
 </Value>
 <Value name="2">
-<Value>date</Value>
+<Value>dateDebut</Value>
 </Value>
 <Value name="3">
-<Value>intervalDate</Value>
+<Value>dateFin</Value>
 </Value>
 </Data>
-<Description>
-<![CDATA[Description]]></Description>
 <State>wsVoitureReservationState</State>
 <StreamLocation>^webObjet.wsVoitureReservationS</StreamLocation>
 <Type>%Storage.Serial</Type>
