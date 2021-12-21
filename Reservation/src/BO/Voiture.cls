@@ -40,6 +40,9 @@ XData MessageMap
     <MapItem MessageType="msg.creerVoitureDmde">
         <Method>creerVoiture</Method>
     </MapItem>
+    <MapItem MessageType="msg.creerVoitureReservationDmde">
+        <Method>reservationVoiture</Method>
+    </MapItem>
 </MapItems>
 }
 

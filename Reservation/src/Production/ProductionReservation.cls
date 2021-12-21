@@ -12,6 +12,9 @@ XData ProductionDefinition
   <Item Name="CommandeVoiture" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">RULE.CommandeVoiture</Setting>
   </Item>
+  <Item Name="ReservationVoiture" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">RULE.ReservationVoiture</Setting>
+  </Item>
 </Production>
 }
 
