@@ -1,38 +1,14 @@
-Class BO.Voiture Extends Ens.BusinessOperation
+Class BO.Reservation Extends Ens.BusinessOperation
 {
 
-Property Adapter As Ens.OutboundAdapter;
+Property Adapter As EnsLib.File.OutboundAdapter;
 
-Parameter ADAPTER = "Ens.OutboundAdapter";
+Parameter ADAPTER = "EnsLib.File.OutboundAdapter";
 
 Parameter INVOCATION = "Queue";
 
-Method creerVoiture(pRequest As msg.creerVoitureDmde, Output pResponse As msg.creerVoitureRpse) As %Status
+Method creerReservationVoiture(pRequest As msg.creerVoitureReservationDmde, Output pResponse As msg.creerVoitureReservationRpse) As %Status
 {
-    
-    set pResponse = ##class(msg.creerVoitureRpse).%New()
-    set voiture = ##class(data.Voiture).%New()
-    //do ##class(Transform.TransformVoitureCommandeToVoiture).Transform(pRequest.voiture,voiture)
-    set voiture.nom = pRequest.nom
-    set voiture.categorie = pRequest.categorie
-    set voiture.plaque = pRequest.plaque
-    set tsc = voiture.%Save()
-
-    set pResponse.codeRetour = "OK"
-
-    Quit $$$OK
-}
-
-Method reservationVoiture(pRequest As msg.creerVoitureReservationDmde, Output pResponse As msg.creerVoitureReservationRpse) As %Status
-{
-    //Set pRequest = ##class(msg.creerVoitureRpse).%New()
-    //set voiture = ##class(data.Voiture).%New()
-    //set voiture.categorie = pRequest.categorie
-    //set tsc = voiture.%Save()
-
-    //set pResponse.codeRetour = "OK"
-
-    //QUIT $$$OK
     set pResponse = ##class(msg.creerVoitureReservationRpse).%New()
     set sql = "select plaque from data.Voiture where categorie = '"_pRequest.categorie_"'and plaque not in ("
     set sql = sql_"SELECT plaque FROM data.Reservation where categorie = '"_pRequest.categorie_"'"
@@ -72,11 +48,8 @@ Method reservationVoiture(pRequest As msg.creerVoitureReservationDmde, Output pR
 XData MessageMap
 {
 <MapItems>
-    <MapItem MessageType="msg.creerVoitureDmde">
-        <Method>creerVoiture</Method>
-    </MapItem>
     <MapItem MessageType="msg.creerVoitureReservationDmde">
-        <Method>reservationVoiture</Method>
+        <Method>creerReservationVoiture</Method>
     </MapItem>
 </MapItems>
 }
